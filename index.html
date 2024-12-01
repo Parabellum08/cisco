@@ -301,59 +301,7 @@
                     font-size: 14px;
                 }
             }
-            /* Default Styles (Desktop and Larger Screens) */
-        body {
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .links {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* Mobile Styles */
-        @media only screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .links {
-                flex-direction: column;
-                gap: 10px;
-                width: 100%;
-                padding: 0;
-            }
-
-            .tablink {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            iframe {
-                width: 100%;
-                height: 400px;
-            }
-
-            body {
-                font-size: 14px;
-            }
-        }          
+                      
     </style>
     <script>
         function showSection(sectionId) {
@@ -416,7 +364,7 @@
             <!-- Page 2: Network Design Requirements -->
             <div id="page2" class="tabcontent">
                  <div class="content-container">
-                     <h2 style="text-align: left;">Network Design Requirements</h2>
+                     <h2 style="text-align: center;">Network Design Requirements</h2>
                      <ol style="text-align: left; font-size: 1.1em; color: #555; line-height: 1.8;">
                          <li>One router and one switch to be used.</li>
                           <li>Three (3) departments: Admin/IT, Finance/HR, and Customer Service/Reception.</li>
@@ -692,75 +640,98 @@
                     </p>
                 </div>
     
-                <!-- VLAN Configuration Section -->
+                <!-- VLAN Configuration Table -->
                 <div style="margin-top: 20px;">
-                    <h2>VLAN Configuration</h2>
-                    <p style="text-align: left; margin-bottom: 20px;">
-                        The third-stage VLAN configuration will be done on the switch.
-                    </p>
-            
-                    <!-- VLAN Steps Table -->
-                    <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px;">
-                        <thead>
-                            <tr style="background-color: #2196F3; color: white;">
-                                <th style="padding: 10px; border: 1px solid #ddd;">VLAN</th>
-                                <th style="padding: 10px; border: 1px solid #ddd;">Steps</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #ddd;">1st VLAN</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">
-                                    Switch>enable — To enable the switch<br>
-                                    Switch#configure terminal — Enter global configuration<br>
-                                    Switch(config)# int range fa0/2–4 — Interface range on FastEthernet<br>
-                                    Switch(config-if)# switchport mode access — Switch the port to access mode<br>
-                                    Switch(config-if)# switchport access vlan 10 — Creating VLAN and assigning value
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #ddd;">2nd VLAN</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">
-                                    Switch>enable — To enable the switch<br>
-                                    Switch#configure terminal — Enter global configuration<br>
-                                    Switch(config)# int range fa0/5–7 — Interface range on FastEthernet<br>
-                                    Switch(config-if)# switchport mode access — Switch the port to access mode<br>
-                                    Switch(config-if)# switchport access vlan 20 — Creating VLAN and assigning value
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 10px; border: 1px solid #ddd;">3rd VLAN</td>
-                                <td style="padding: 10px; border: 1px solid #ddd;">
-                                    Switch>enable — To enable the switch<br>
-                                    Switch#configure terminal — Enter global configuration<br>
-                                    Switch(config)# int range fa0/8–10 — Interface range on FastEthernet<br>
-                                    Switch(config-if)# switchport mode access — Switch the port to access mode<br>
-                                    Switch(config-if)# switchport access vlan 30 — Creating VLAN and assigning value<br>
-                                    Switch(config-if)# exit — Exit the interface<br>
-                                    Switch(config)# do write — To save the configuration
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            
-                    <!-- Note Section -->
-                    <p style="text-align: left; margin-bottom: 20px;">
-                        <strong>Note:</strong> VLANs help segment network traffic, but if there are too many VLANs, it can lead to increased broadcast and multicast traffic within each VLAN. This can consume network bandwidth and processing resources on network devices, potentially slowing down network performance. To address this issue, we implemented a trunk on the gateway interface.
-                    </p>
-            
-                    <!-- Trunk Explanation -->
-                    <p style="text-align: left;">
-                        In networking, a trunk refers to a communication channel or link that carries multiple VLANs between switches, routers, or other network devices. Trunks are essential for enabling communication between devices in different VLANs and are commonly used in larger networks where VLAN segmentation is implemented.
-                    </p>
-                </div>
+                <h2>VLAN Configuration</h2>
+                <p style="text-align: left;">
+                    The third-stage VLAN configuration will be done on the switch.
+                </p>
+                <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="background-color: #4CAF50; color: white;">
+                            <th style="padding: 10px;">VLAN</th>
+                            <th style="padding: 10px; text-align: center;">Command</th>
+                            <th style="padding: 10px; text-align: center;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 1st VLAN -->
+                        <tr>
+                            <td style="padding: 10px; text-align: center;">1st VLAN</td>
+                            <td style="padding: 10px; text-align: left;">
+                                <strong>Switch></strong> enable<br>
+                                <strong>Switch#</strong> configure terminal<br>
+                                <strong>Switch(config)#</strong> int range fa0/2–4<br>
+                                <strong>Switch(config-if)#</strong> switchport mode access<br>
+                                <strong>Switch(config-if)#</strong> switchport access vlan 10
+                            </td>
+                            <td style="padding: 10px; text-align: left;">
+                                To enable the switch<br>
+                                Enter global configuration<br>
+                                Interface range on FastEthernet<br>
+                                Switch the port to access mode<br>
+                                Creating VLAN 10 and assigning it to the ports 2-4
+                            </td>
+                        </tr>
+                        <!-- 2nd VLAN -->
+                        <tr>
+                            <td style="padding: 10px; text-align: center;">2nd VLAN</td>
+                            <td style="padding: 10px; text-align: left;">
+                                <strong>Switch></strong> enable<br>
+                                <strong>Switch#</strong> configure terminal<br>
+                                <strong>Switch(config)#</strong> int range fa0/5–7<br>
+                                <strong>Switch(config-if)#</strong> switchport mode access<br>
+                                <strong>Switch(config-if)#</strong> switchport access vlan 20
+                            </td>
+                            <td style="padding: 10px; text-align: left;">
+                                To enable the switch<br>
+                                Enter global configuration<br>
+                                Interface range on FastEthernet<br>
+                                Switch the port to access mode<br>
+                                Creating VLAN 20 and assigning it to the ports 5-7
+                            </td>
+                        </tr>
+                        <!-- 3rd VLAN -->
+                        <tr>
+                            <td style="padding: 10px; text-align: center;">3rd VLAN</td>
+                            <td style="padding: 10px; text-align: left;">
+                                <strong>Switch></strong> enable<br>
+                                <strong>Switch#</strong> configure terminal<br>
+                                <strong>Switch(config)#</strong> int range fa0/8–10<br>
+                                <strong>Switch(config-if)#</strong> switchport mode access<br>
+                                <strong>Switch(config-if)#</strong> switchport access vlan 30<br>
+                                <strong>Switch(config-if)#</strong> exit<br>
+                                <strong>Switch(config)#</strong> do write
+                            </td>
+                            <td style="padding: 10px; text-align: left;">
+                                To enable the switch<br>
+                                Enter global configuration<br>
+                                Interface range on FastEthernet<br>
+                                Switch the port to access mode<br>
+                                Creating VLAN 30 and assigning it to the ports 8-10<br>
+                                Exit the interface configuration mode<br>
+                                To save the configuration
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: left; margin-top: 20px;">
+                    <strong>Note:</strong> VLANs help segment network traffic, but if there are too many VLANs, it can lead to increased broadcast and multicast traffic within each VLAN. 
+                    This can consume network bandwidth and processing resources on network devices, potentially slowing down network performance. 
+                    To address this issue, we implemented a trunk on the gateway interface.
+                </p>
+                <p style="text-align: left; margin-top: 10px;">
+                    In networking, a trunk refers to a communication channel or link that carries multiple VLANs between switches, routers, or other network devices. 
+                    Trunks are essential for enabling communication between devices in different VLANs and are commonly used in larger networks where VLAN segmentation is implemented.
+                </p>
             </div>
-    
+        </div>
             <!-- Trunk Configuration Table -->
             <div style="margin-top: 20px;">
                 <h2>Trunk Configuration</h2>
                 <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #4CAF50; color: white;">
+                        <tr style="background-color: #2196F3; color: white;">
                             <th style="padding: 10px; text-align: center;">Command</th>
                             <th style="padding: 10px; text-align: center;">Descriptions</th>
                         </tr>
@@ -844,66 +815,201 @@
                 <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px;">
                     <thead>
                         <tr style="background-color: #007BFF; color: white;">
-                            <th style="padding: 10px; border: 1px solid #ddd;">Command</th>
-                            <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
+                            <th style="padding: 10px; text-align: center;">Command</th>
+                            <th style="padding: 10px; text-align: center;">Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config)# int g0/0.10</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config)#</strong> int g0/0.10</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Assign VLAN 10 to the sub-interface</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# encapsulation dot1q 10</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> encapsulation dot1q 10</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Set encapsulation for VLAN 10</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# ip add 192.168.2.1 255.255.255.192</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> ip add 192.168.2.1 255.255.255.192</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Assign the first IP address of the first subnet</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# exit</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> exit</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Exit the sub-interface configuration</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config)# int g0/0.20</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config)#</strong> int g0/0.20</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Assign VLAN 20 to the sub-interface</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# encapsulation dot1q 20</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> encapsulation dot1q 20</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Set encapsulation for VLAN 20</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# ip add 192.168.2.65 255.255.255.192</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> ip add 192.168.2.65 255.255.255.192</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Assign the first IP address of the second subnet</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# exit</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> exit</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Exit the sub-interface configuration</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config)# int g0/0.30</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config)#</strong> int g0/0.30</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Assign VLAN 30 to the sub-interface</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# encapsulation dot1q 30</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> encapsulation dot1q 30</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Set encapsulation for VLAN 30</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# ip add 192.168.2.129 255.255.255.192</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> ip add 192.168.2.129 255.255.255.192</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Assign the first IP address of the third subnet</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config-subif)# exit</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config-subif)#</strong> exit</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Exit the sub-interface configuration</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Router(config)# do wr</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config)#</strong> do wr</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">Save the configuration</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+                
+            <div style="margin-top: 20px;">
+                <h2>DHCP Server Configuration</h2>
+                <p style="text-align: left; margin-bottom: 20px;">
+                    As requested in the case study, the device will obtain IP automatically, and DHCP service must be enabled and configured on the router.
+                </p>
+            
+                <!-- Table 1: Admin/IT -->
+                <h3 style="text-align: left; font-size: 18px; color: #000000; margin-top: 20px;">Admin/IT</h3>
+                <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px;">
+                    <thead>
+                        <tr style="background-color: #000000; color: white;">
+                            <th style="padding: 10px; text-align: center;">Command</th>
+                            <th style="padding: 10px; text-align: center;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router></strong> enable or en</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Enables Privileged Exec Mode</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router#</strong> config t or configure terminal</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Enter global configuration</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config)#</strong> service dhcp></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Enable DHCP service</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> ip dhcp pool Admin-IT</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Creates a pool for Admin/IT department</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> network 192.168.2.0 255.255.255.192</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">The network ID of VLAN 10</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> default-router 192.168.2.1</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Default gateway address of VLAN 10</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> dns-server 192.168.2.1</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Any IP can be assigned on a DNS server</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> domain-name admin.com></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Assigning a domain name (not compulsory)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> exit</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Exits DHCP pool configuration mode</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <!-- Table 2: Finance -->
+                <h3 style="text-align: left; font-size: 18px; color: #000000; margin-top: 20px;">Finance</h3>
+                <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px;">
+                    <thead>
+                        <tr style="background-color: #000000; color: white;">
+                            <th style="padding: 10px; text-align: center;">Command</th>
+                            <th style="padding: 10px; text-align: center;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> ip dhcp pool Finance</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Creates a pool for the Finance department</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> network 192.168.2.64 255.255.255.192</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">The network ID of VLAN 20</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> default-router 192.168.2.65</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Default gateway address of VLAN 20</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> dns-server 192.168.2.65</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Any IP can be assigned on a DNS server</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> domain-name finance.com</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Assigning a domain name (not compulsory)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> exit</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Exits DHCP pool configuration mode</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <!-- Table 3: Customer -->
+                <h3 style="text-align: left; font-size: 18px; color: #000000; margin-top: 20px;">Customer</h3>
+                <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px;">
+                    <thead>
+                        <tr style="background-color: #000000; color: white;">
+                            <th style="padding: 10px; text-align: center;">Command</th>
+                            <th style="padding: 10px; text-align: center;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> ip dhcp pool customer</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Creates a pool for Customer Service</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> network 192.168.2.128 255.255.255.192</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">The network ID of VLAN 30</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> default-router 192.168.2.129</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Default gateway address of VLAN 30</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> dns-server 192.168.2.129</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Any IP can be assigned on a DNS server</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> domain-name csr.com</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Assigning a domain name (not compulsory)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(dhcp-config)#</strong> exit</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Exits DHCP pool configuration mode</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Router(config)#</strong> do wr</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">To save the configuration</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>            
+        
          </div>            
         <div id="site-location" class="section">
             <h1>Site Location</h1>
@@ -924,11 +1030,16 @@
             <h1>Physical Topology</h1>
             <p style="text-align: left; margin-bottom: 20px;">
                 <strong>Descriptions:</strong>
-                <br> This section provides an overview of the physical network layout, including the connections between devices and their physical placements.
+                <br> This section provides an overview of the logical & physical network layout, including the connections between devices and their physical placements.
+                <strong>Logical</strong>
             </p>
             <div style="text-align: center;">
                 <img src="topology.png" alt="Physical Topology Diagram" style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div style="text-align: center; font-weight: bold; margin-bottom: 10px;">Home City</div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="Home City.png" alt="Home City Image" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
             </div>
+        </div>
         </div>        
         <div id="ip-addressing" class="section">
             <h1>IP Addressing</h1>
@@ -948,97 +1059,97 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Department/Device</th>
-                            <th>Device Type</th>
-                            <th>IP Address</th>
-                            <th>Subnet Mask</th>
-                            <th>Network ID</th>
+                            <th style="padding: 10px; text-align: center;">Department/Device</th>
+                            <th style="padding: 10px; text-align: center;">Device Type</th>
+                            <th style="padding: 10px; text-align: center;">IP Address</th>
+                            <th style="padding: 10px; text-align: center;">Subnet Mask</th>
+                            <th style="padding: 10px; text-align: center;">Network ID</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Admin/IT (VLAN 10)</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT (VLAN 10)</td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>Router (Gateway)</td>
-                            <td>192.168.2.1</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">Router (Gateway)</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.1</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>Switch (Mgmt IP)</td>
-                            <td>192.168.2.2</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">Switch (Mgmt IP)</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.2</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>PC PT0</td>
-                            <td>192.168.2.3</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">PC PT0</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.3</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>Access Point 2</td>
-                            <td>192.168.2.4</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">Access Point 2</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.4</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>Access Point 3</td>
-                            <td>192.168.2.5</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">Access Point 3</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.5</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>PC 1</td>
-                            <td>192.168.2.6</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">PC 1</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.6</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>PC 2</td>
-                            <td>192.168.2.7</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">PC 2</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.7</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>PC 3</td>
-                            <td>192.168.2.8</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">PC 3</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.8</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>PC 4</td>
-                            <td>192.168.2.9</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">PC 4</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.9</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>PC 5</td>
-                            <td>192.168.2.10</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">PC 5</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.10</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <tr>
-                            <td>Admin/IT</td>
-                            <td>PC 6</td>
-                            <td>192.168.2.11</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.0/26</td>
+                            <td style="padding: 10px; text-align: center;">Admin/IT</td>
+                            <td style="padding: 10px; text-align: center;">PC 6</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.11</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.0/26</td>
                         </tr>
                         <!-- Add the rest of the Admin/IT rows -->
                     </tbody>
@@ -1053,90 +1164,91 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Department/Device</th>
-                            <th>Device Type</th>
-                            <th>IP Address</th>
-                            <th>Subnet Mask</th>
-                            <th>Network ID</th>
+                            <tr style="background-color: #4CAF50; color: white;"></tr>
+                            <th style="padding: 10px; text-align: center;">Department/Device</th>
+                            <th style="padding: 10px; text-align: center;">Device Type</th>
+                            <th style="padding: 10px; text-align: center;">IP Address</th>
+                            <th style="padding: 10px; text-align: center;">Subnet Mask</th>
+                            <th style="padding: 10px; text-align: center;">Network ID</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Finance/HR (VLAN 20)</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR (VLAN 20)</td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>Router (Gateway)</td>
-                            <td>192.168.2.65</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">Router (Gateway)</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.65</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>PC 1</td>
-                            <td>192.168.2.66</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">PC 1</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.66</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>PC 2</td>
-                            <td>192.168.2.67</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">PC 2</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.67</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>PC 3</td>
-                            <td>192.168.2.68</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">PC 3</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.68</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>PC 4</td>
-                            <td>192.168.2.69</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">PC 4</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.69</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>PC 5</td>
-                            <td>192.168.2.70</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">PC 5</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.70</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>PC 6</td>
-                            <td>192.168.2.71</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">PC 6</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.71</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>Printer 1</td>
-                            <td>192.168.2.72</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">Printer 1</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.72</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>Printer 2</td>
-                            <td>192.168.2.73</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">Printer 2</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.73</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <tr>
-                            <td>Finance/HR</td>
-                            <td>Printer 3</td>
-                            <td>192.168.2.74</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.64/26</td>
+                            <td style="padding: 10px; text-align: center;">Finance/HR</td>
+                            <td style="padding: 10px; text-align: center;">Printer 3</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.74</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.64/26</td>
                         </tr>
                         <!-- Add the rest of the Finance/HR rows -->
                     </tbody>
@@ -1151,125 +1263,125 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Department/Device</th>
-                            <th>Device Type</th>
-                            <th>IP Address</th>
-                            <th>Subnet Mask</th>
-                            <th>Network ID</th>
+                            <th style="padding: 10px; text-align: center;">Department/Device</th>
+                            <th style="padding: 10px; text-align: center;">Device Type</th>
+                            <th style="padding: 10px; text-align: center;">IP Address</th>
+                            <th style="padding: 10px; text-align: center;">Subnet Mask</th>
+                            <th style="padding: 10px; text-align: center;">Network ID</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Customer Service/Reception (VLAN 30)</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service/Reception (VLAN 30)</td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Router (Gateway)</td>
-                            <td>192.168.2.129</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Router (Gateway)</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.129</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>PC 1</td>
-                            <td>192.168.2.130</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">PC 1</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.130</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>PC 2</td>
-                            <td>192.168.2.131</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">PC 2</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.131</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>PC 3</td>
-                            <td>192.168.2.132</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">PC 3</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.132</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>PC 4</td>
-                            <td>192.168.2.133</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">PC 4</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.133</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>PC 5</td>
-                            <td>192.168.2.134</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">PC 5</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.134</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>PC 6</td>
-                            <td>192.168.2.135</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">PC 6</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.135</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Laptop 1</td>
-                            <td>192.168.2.136</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Laptop 1</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.136</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Laptop 2</td>
-                            <td>192.168.2.137</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Laptop 2</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.137</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Laptop 3</td>
-                            <td>192.168.2.138</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Laptop 3</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.138</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Laptop 4</td>
-                            <td>192.168.2.139</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Laptop 4</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.139</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Smartphone 1</td>
-                            <td>192.168.2.140</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Smartphone 1</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.140</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Smartphone 2</td>
-                            <td>192.168.2.141</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Smartphone 2</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.141</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Smartphone 3</td>
-                            <td>192.168.2.142</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Smartphone 3</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.142</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <tr>
-                            <td>Customer Service</td>
-                            <td>Smartphone 4</td>
-                            <td>192.168.2.143</td>
-                            <td>255.255.255.192</td>
-                            <td>192.168.2.128/26</td>
+                            <td style="padding: 10px; text-align: center;">Customer Service</td>
+                            <td style="padding: 10px; text-align: center;">Smartphone 4</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.143</td>
+                            <td style="padding: 10px; text-align: center;">255.255.255.192</td>
+                            <td style="padding: 10px; text-align: center;">192.168.2.128/26</td>
                         </tr>
                         <!-- Add the rest of the Customer Service rows -->
                     </tbody>
