@@ -301,6 +301,116 @@
                     font-size: 14px;
                 }
             }
+
+            .tabs {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+        
+            .tablink {
+                background-color: #ddd;
+                color: #333;
+                border: 1px solid #ccc;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin: 0 5px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+        
+            .tablink:hover {
+                background-color: #2196F3;
+                color: white;
+            }
+        
+            .tablink.active {
+                background-color: #2196F3;
+                color: white;
+            }
+        
+            /* Sub-page Content */
+            .topology-content,
+            .subpage-content {
+                display: none;
+            }
+        
+            .topology-content.active,
+            .subpage-content.active {
+                display: block;
+                animation: fadeIn 0.3s;
+            }
+        
+            /* Sub-page Navigation */
+            .subpage-tabs {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+        
+            .subpage-link {
+                background-color: #ddd;
+                color: #333;
+                border: 1px solid #ccc;
+                padding: 5px 15px;
+                font-size: 14px;
+                cursor: pointer;
+                border-radius: 50%;
+                margin: 0 5px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+        
+            .subpage-link:hover {
+                background-color: #2196F3;
+                color: white;
+            }
+        
+            .subpage-link.active {
+                background-color: #2196F3;
+                color: white;
+            }
+        
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            #about h1 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: #2c3e50;
+                text-align: center;
+            }
+        
+            #about p {
+                font-size: 1.2rem;
+                color: #555;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        
+            #about h2 {
+                font-size: 1.8rem;
+                color: #388e3c;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        
+            #about img {
+                border-radius: 50%;
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+        
+            #about div p {
+                margin-top: 10px;
+                font-size: 1rem;
+                color: #333;
+                text-align: center;
+            }
                       
     </style>
     <script>
@@ -326,13 +436,15 @@
         <!-- Navigation Links -->
         <div class="links">
             <a href="#home" onclick="showSection('home')">Home</a>
-            <a href="#instruction" onclick="showSection('instruction')">Instruction</a>
+            <a href="#instruction" onclick="showSection('instruction')">Instructions</a>
             <a href="#site-location" onclick="showSection('site-location')">Site Location</a>
+            <a href="#download-pt" onclick="showSection('download-pt')">Download PT</a>
             <a href="#floor-plan" onclick="showSection('floor-plan')">Floor Plan</a>
             <a href="#physical-topology" onclick="showSection('physical-topology')">Physical Topology</a>
             <a href="#ip-addressing" onclick="showSection('ip-addressing')">IP Addressing</a>
             <a href="#cutsheet" onclick="showSection('cutsheet')">Cutsheet</a>
             <a href="#costing" onclick="showSection('costing')">Costing</a>
+            <a href="#about" onclick="showSection('about')">About</a>
         </div>
     </div>
 
@@ -533,6 +645,21 @@
                     font-size: 1em;
                 }
             }
+            .download-link {
+                display: inline-block;
+                background-color: #2196F3;
+                color: white;
+                padding: 10px 20px;
+                font-size: 16px;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            }
+        
+            .download-link:hover {
+                background-color: #1769aa;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
         </style>
         <div id="instruction" class="section">
             <h1>Instructions</h1>
@@ -648,7 +775,7 @@
                 </p>
                 <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #4CAF50; color: white;">
+                        <tr style="background-color: #000000; color: white;">
                             <th style="padding: 10px;">VLAN</th>
                             <th style="padding: 10px; text-align: center;">Command</th>
                             <th style="padding: 10px; text-align: center;">Description</th>
@@ -772,7 +899,7 @@
                     We implement inter-VLAN routing to allow communication between each of the devices. This configuration will be carried on the router.
                 <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background-color: #4CAF50; color: white;">
+                        <tr style="background-color: #000000; color: white;">
                             <th style="padding: 10px; text-align: center;"><strong>Command</strong></th>
                             <th style="padding: 10px; text-align: center;"><strong>Descriptions</strong></th>
                         </tr>
@@ -969,7 +1096,7 @@
                 </table>
             
                 <!-- Table 3: Customer -->
-                <h3 style="text-align: left; font-size: 18px; color: #000000; margin-top: 20px;">Customer</h3>
+                <h3 style="text-align: left; font-size: 18px; color: #007BFF; margin-top: 20px;">Customer</h3>
                 <table style="width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px;">
                     <thead>
                         <tr style="background-color: #000000; color: white;">
@@ -1021,6 +1148,13 @@
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
+        </div>
+        <div id="download-pt" class="section">
+            <h1>Download Our Packet Tracer</h1>
+            <p>Click the button below to download Zev's Packet Tracer</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="Zev's Packet Tracer.pkt" download="Zev's Packet Tracer.pkt" class="download-link">Download</a>
+            </div>
         </div>                        
         <div id="floor-plan" class="section">
             <h1>Floor Plan</h1>
@@ -1028,18 +1162,63 @@
         </div>
         <div id="physical-topology" class="section">
             <h1>Physical Topology</h1>
-            <p style="text-align: left; margin-bottom: 20px;">
-                <strong>Descriptions:</strong>
-                <br> This section provides an overview of the logical & physical network layout, including the connections between devices and their physical placements.
-                <strong>Logical</strong>
-            </p>
-            <div style="text-align: center;">
-                <img src="topology.png" alt="Physical Topology Diagram" style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                <div style="text-align: center; font-weight: bold; margin-bottom: 10px;">Home City</div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <img src="Home City.png" alt="Home City Image" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <p>This section provides an overview of the logical & physical network layout, including the connections between devices and their physical placements.</p>
+
+            <!-- Main Tab Navigation -->
+            <div class="tabs">
+                <button class="tablink active" onclick="showTopologyPage('physical-page')">Physical Topology</button>
+                <button class="tablink" onclick="showTopologyPage('logical-page')">Logical Topology</button>
             </div>
-        </div>
+        
+            <!-- Page 1: Physical Topology -->
+            <div id="physical-page" class="topology-content active">
+        
+                <!-- Sub-pages -->
+                <div id="physical-subpage1" class="subpage-content active">
+                    <h3>Home City</h3>
+                    <div style="text-align: center;">
+                        <img src="Home City.png" alt="Physical Topology Page 1" style="max-width: 80%; height: auto; border-radius: 10px;">
+                    </div>
+                </div>
+        
+                <div id="physical-subpage2" class="subpage-content">
+                    <h3>Corporate Office</h3>
+                    <div style="text-align: center;">
+                        <img src="Corporate Office.png" alt="Physical Topology Page 2" style="max-width: 80%; height: auto; border-radius: 10px;">
+                    </div>
+                </div>
+        
+                <div id="physical-subpage3" class="subpage-content">
+                    <h3>Main Wiring Closet</h3>
+                    <div style="text-align: center;">
+                        <img src="Main Wiring Closet.png" alt="Physical Topology Page 3" style="max-width: 80%; height: auto; border-radius: 10px;">
+                    </div>
+                </div>
+        
+                <div id="physical-subpage4" class="subpage-content">
+                    <h3>Rack of Devices</h3>
+                    <div style="text-align: center;">
+                        <img src="Rack of Devices.png" alt="Physical Topology Page 4" style="max-width: 80%; height: auto; border-radius: 10px;">
+                    </div>
+                </div>
+        
+                <!-- Sub-page Navigation -->
+                <div class="subpage-tabs">
+                    <button class="subpage-link active" onclick="showSubPage('physical-subpage1')">1</button>
+                    <button class="subpage-link" onclick="showSubPage('physical-subpage2')">2</button>
+                    <button class="subpage-link" onclick="showSubPage('physical-subpage3')">3</button>
+                    <button class="subpage-link" onclick="showSubPage('physical-subpage4')">4</button>
+                </div>
+            </div>
+        
+            <!-- Page 2: Logical Topology -->
+            <div id="logical-page" class="topology-content">
+                <h2>Logical Topology</h2>
+                <p><strong>Descriptions:</strong> This section illustrates the logical arrangement of the network, including how data flows between the devices.</p>
+                <div style="text-align: center;">
+                    <img src="topology.png" alt="Logical Topology Diagram" style="max-width: 80%; height: auto; border-radius: 10px;">
+                </div>
+            </div>
         </div>        
         <div id="ip-addressing" class="section">
             <h1>IP Addressing</h1>
@@ -1164,7 +1343,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <tr style="background-color: #4CAF50; color: white;"></tr>
+                            <tr style="background-color: #000000; color: white;"></tr>
                             <th style="padding: 10px; text-align: center;">Department/Device</th>
                             <th style="padding: 10px; text-align: center;">Device Type</th>
                             <th style="padding: 10px; text-align: center;">IP Address</th>
@@ -1552,8 +1731,30 @@
                     </tr>
                 </tfoot>
             </table>
-        </div>        
+        </div>
+        <div id="about" class="section">
+            <h1>About</h1>
+            <p>This is Zev's Website. We made this website as part of our final project in CPETRACK3.</p>
+            <h2>Members</h2>
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <img src="Manalastas.png" alt="Member 1" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+                    <p><strong>Z</strong>harren</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="Ruiz.png" alt="Member 2" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+                    <p><strong>E</strong>dsel</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="Rulloda.png" alt="Member 3" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+                    <p><strong>V</strong>incent</p>
+                </div>
+            </div>
+        </div>
     </div>
+        
+
+                    
 
     <!-- Footer -->
     <footer>
@@ -1588,6 +1789,36 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('subnettingPage1').style.display = 'block';
         });
+
+        function showTopologyPage(pageId) {
+            // Hide all topology pages
+            const pages = document.querySelectorAll('.topology-content');
+            pages.forEach(page => page.classList.remove('active'));
+    
+            // Show the selected page
+            const targetPage = document.getElementById(pageId);
+            targetPage.classList.add('active');
+    
+            // Highlight the active tab
+            const tabs = document.querySelectorAll('.tablink');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    
+        function showSubPage(subPageId) {
+            // Hide all sub-pages
+            const subPages = document.querySelectorAll('.subpage-content');
+            subPages.forEach(subPage => subPage.classList.remove('active'));
+    
+            // Show the selected sub-page
+            const targetSubPage = document.getElementById(subPageId);
+            targetSubPage.classList.add('active');
+    
+            // Highlight the active sub-page button
+            const subpageLinks = document.querySelectorAll('.subpage-link');
+            subpageLinks.forEach(link => link.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
     </script>    
 </body>
 </html>
