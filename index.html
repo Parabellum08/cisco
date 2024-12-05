@@ -1176,11 +1176,61 @@
             </div>
         </div>                        
         <div id="floor-plan" class="section">
-            <h1>Floor Plan</h1>
-            <p>This section showcases the floor plan layout designed for the Zev's Company, providing a clear understanding of the physical arrangement of spaces and equipment.</p>
-            <div style="text-align: center; margin-top: 20px;">
-                <img src="floor plan.png" alt="Floor Plan" style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+            <h1 style="text-align: center; color: #000000; font-size: 2.5rem; margin-bottom: 20px;">Floor Plan</h1>
+            
+            <!-- First Description -->
+            <div style="margin-bottom: 40px;">
+                <h2 style="color: #333; font-size: 1.5rem; margin-bottom: 10px; text-align: left">Admin/IT</h2>
+                <p style="color: #555; text-align: center;">The Admin/IT department floor plan is designed to accommodate administrative and IT operations efficiently. The layout includes organized rows of desks with computer stations, providing adequate space for staff to perform their tasks. A dedicated area for the server/router is positioned strategically to manage the network infrastructure. Additional spaces include a private room, likely for storage or restroom use, and a seating area that may serve as a reception or client interaction zone. The network setup connects each workstation to the server, ensuring seamless communication and productivity..</p>
+                <div style="display: flex; gap: 20px; justify-content: space-between; margin-top: 20px;">
+                    <!-- Left Image -->
+                    <div style="flex: 1; overflow: hidden; border-radius: 10px; cursor: pointer;" onclick="enlargeImage(this)">
+                        <img src="First Floor (without wire).png" alt="Image 1" style="width: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                    <!-- Right Image -->
+                    <div style="flex: 1; overflow: hidden; border-radius: 10px; cursor: pointer;" onclick="enlargeImage(this)">
+                        <img src="First Floor (with wire).png" alt="Image 2" style="width: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                </div>
             </div>
+        
+            <!-- Second Description -->
+            <div style="margin-bottom: 40px;">
+                <h2 style="color: #333; font-size: 1.5rem; margin-bottom: 10px; text-align: left;">Finance/HR</h2>
+                <p style="color: #555;">The Finance/HR department is designed to prioritize confidentiality and productivity. Workstations are organized into clusters, facilitating collaboration among team members while ensuring each station has enough space for focused tasks. Each workstation is connected to the central network through secure cabling, enabling efficient access to financial and human resource management systems. The layout also includes room for filing cabinets or storage, accommodating sensitive documents securely..</p>
+                <div style="display: flex; gap: 20px; justify-content: space-between; margin-top: 20px;">
+                    <!-- Left Image -->
+                    <div style="flex: 1; overflow: hidden; border-radius: 10px; cursor: pointer;" onclick="enlargeImage(this)">
+                        <img src="Second Floor (without wire).png" alt="Image 3" style="width: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                    <!-- Right Image -->
+                    <div style="flex: 1; overflow: hidden; border-radius: 10px; cursor: pointer;" onclick="enlargeImage(this)">
+                        <img src="Second Floor (with wire).png" alt="Image 4" style="width: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Third Description -->
+            <div style="margin-bottom: 40px;">
+                <h2 style="color: #333; font-size: 1.5rem; margin-bottom: 10px; text-align: left;">Customer Service/Reception</h2>
+                <p style="color: #555;">The Customer Service/Reception area serves as the welcoming point for visitors and provides an efficient workspace for front-desk operations. It features a reception desk equipped with a computer system and seating arrangements for staff. Comfortable visitor chairs are positioned to ensure a professional and inviting atmosphere. The network setup supports real-time communication systems for handling customer inquiries effectively, while the placement ensures visibility and easy interaction with both internal staff and external clients..</p>
+                <div style="display: flex; gap: 20px; justify-content: space-between; margin-top: 20px;">
+                    <!-- Left Image -->
+                    <div style="flex: 1; overflow: hidden; border-radius: 10px; cursor: pointer;" onclick="enlargeImage(this)">
+                        <img src="Third Floor (without wire).png" alt="Image 5" style="width: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                    <!-- Right Image -->
+                    <div style="flex: 1; overflow: hidden; border-radius: 10px; cursor: pointer;" onclick="enlargeImage(this)">
+                        <img src="Third Floor (with wire).png" alt="Image 6" style="width: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal for Enlarged Images -->
+        <div id="image-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center;">
+            <img id="modal-image" style="max-width: 90%; max-height: 90%; border-radius: 10px;" />
+            <button onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; background: white; border: none; padding: 10px; cursor: pointer; font-size: 16px;">Close</button>
         </div>        
         <div id="physical-topology" class="section">
             <h1>Physical Topology</h1>
@@ -1837,7 +1887,22 @@
             const subpageLinks = document.querySelectorAll('.subpage-link');
             subpageLinks.forEach(link => link.classList.remove('active'));
             event.currentTarget.classList.add('active');
+        
         }
+
+        function enlargeImage(img) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            modal.style.display = 'flex';
+            modalImg.src = img.querySelector('img').src; // Fetch the src of the clicked image
+        }
+    
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.style.display = 'none';
+        
+        }
+        
     </script>    
 </body>
 </html>
