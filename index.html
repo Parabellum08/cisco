@@ -430,6 +430,54 @@
                 border-radius: 10px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                font-size: 1rem;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0);
+            }
+            
+            thead tr {
+                background: linear-gradient(90deg, #000000, #000000);
+                color: #fff;
+                text-align: center;
+                font-weight: bold;
+            }
+            
+            tbody tr {
+                background-color: #f9f9f9;
+                transition: all 0.3s;
+            }
+            
+            tbody tr:hover {
+                background-color: #f1f1f1;
+                transform: scale(1.02);
+            }
+            
+            th, td {
+                padding: 12px 15px;
+                text-align: center;
+                border: 1px solid #ddd;
+            }
+            
+            h1 {
+                font-family: 'Poppins', sans-serif;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0);
+            }
+            
+            table td:first-child {
+                font-weight: bold;
+                color: #000000;
+            }
+            
+            table td:last-child {
+                font-weight: bold;
+                color: #000000;
+            }            
                       
     </style>
     <script>
@@ -1641,94 +1689,101 @@
         </div>
                         
         <div id="cutsheet" class="section">
-            <h1>Cutsheet</h1>
-            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <h1 style="text-align: center; color: #000; font-size: 2.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+                Cutsheet
+            </h1>
+            <table style="width: 100%; border-collapse: collapse; margin: 0 auto; font-size: 1rem; text-align: left; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
                 <thead>
-                    <tr style="background: #2196F3; color: white;">
-                        <th style="padding: 10px; border: 1px solid #ddd;">Item</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Model</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Specifications</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Quantity</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Unit Cost</th>
-                        <th style="padding: 10px; border: 1px solid #ddd;">Total Cost</th>
+                    <tr style="background: linear-gradient(90deg, #000000, #000000); color: #000; text-align: center;">
+                        <th style="padding: 12px 15px; text-align: center; color: #000;">Department</th>
+                        <th style="padding: 12px 15px; text-align: center; color: #000;">Source</th>
+                        <th style="padding: 12px 15px; text-align: center; color: #000;">Destination</th>
+                        <th style="padding: 12px 15px; text-align: center; color: #000;">Cable Length (Meters)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Router</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Cisco 2901 ISR</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Dual-core 2.0 GHz, 1GB RAM, 2x GE, VPN, Firewall</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">1</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱70,000</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱70,000</td>
+                    <!-- Admin Rows -->
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;" rowspan="5">Admin</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">PC-A</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Switch</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">23</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Switch</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Cisco Catalyst 2960X</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">24x GE, 176 Gbps, PoE, Managed</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">1</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱52,500</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱52,500</td>
+                    <tr style="background-color: #fff; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">PC-B</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Switch</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">16</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Access Points</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Cisco Aironet 1832I</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">802.11ac, Dual-Band, WPA3, PoE</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">3</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱17,500</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱52,500</td>
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Printer</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Switch</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">10</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">PCs</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Dell OptiPlex 7080 Micro</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Intel Core i5, 8GB RAM, 512GB SSD</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">6</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱52,500</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱315,000</td>
+                    <tr style="background-color: #fff; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Switch</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">9</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Laptops</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Lenovo ThinkPad X1 Carbon Gen 9</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Intel Core i7, 16GB RAM, 512GB SSD</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">4</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱35,000</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱140,000</td>
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Switch</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Router</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">1</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Printers</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">HP LaserJet Pro MFP M428fdw</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Monochrome, 40 ppm, Ethernet, Wi-Fi</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">3</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱17,500</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱52,500</td>
+        
+                    <!-- Finance/HR Rows -->
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;" rowspan="4">Finance/HR</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">PC-A</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">8</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Smartphones</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Apple iPhone 13</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">6.1-inch, A15 Bionic, 128GB</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">4</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱35,000</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱140,000</td>
+                    <tr style="background-color: #fff; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">PC-B</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">10</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Cabling & Accessories</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Cat 6 Ethernet Cables</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">RJ45, Cable Management</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">1 lot</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱18,500</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱18,500</td>
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Printer</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">12</td>
                     </tr>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Server Rack</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">StarTech 12U</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">Steel, 500kg Capacity, Cooling</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">1</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱50,000</td>
-                        <td style="padding: 10px; border: 1px solid #ddd;">₱50,000</td>
+                    <tr style="background-color: #fff; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Switch</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">6</td>
+                    </tr>
+        
+                    <!-- Customer Service Rows -->
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;" rowspan="5">Customer Service</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Switch</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">10</td>
+                    </tr>
+                    <tr style="background-color: #fff; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">PC-A</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">8</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">PC-B</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">10</td>
+                    </tr>
+                    <tr style="background-color: #fff; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">PC-C</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">12</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9; transition: all 0.3s; color: #000;">
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">Printer</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">AP</td>
+                        <td style="padding: 12px 15px; text-align: center; color: #000;">17</td>
                     </tr>
                 </tbody>
             </table>
-        </div>        
+        </div>
+                                
         <div id="costing" class="section">
             <h1 style="text-align: center; font-family: Arial, sans-serif; color: #333;">Costing</h1>
             <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
